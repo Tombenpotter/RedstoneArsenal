@@ -1,0 +1,41 @@
+#fr_FR
+
+death.attack.flux=La réalité de %1$s a été mise en pièces par du Flux!
+death.attack.flux.player=%1$s a été Fluxé à mort par %2$s!
+
+info.redstonearsenal.tool.chargeOn=pour rendre plus puissant
+info.redstonearsenal.tool.chargeOff=pour rendre moins puissant
+info.redstonearsenal.tool.energyPerUse=RF par utilisation
+info.redstonearsenal.tool.shovel=Peut aussi être utilisé comme une houe.
+info.redstonearsenal.tool.wrench=Peut aussi être utilisé comme des cisailles
+
+item.redstonearsenal.material.dustElectrumFlux.name=Mélange d'Électrum Fluxé
+item.redstonearsenal.material.ingotElectrumFlux.name=Lingot d'Électrum Fluxé
+item.redstonearsenal.material.nuggetElectrumFlux.name=Pépite d'Électrum Fluxé
+item.redstonearsenal.material.gemCrystalFlux.name=Crystal de Flux
+item.redstonearsenal.material.rodObsidian.name=Bâton d'Obsidienne 
+item.redstonearsenal.material.rodObsidianFlux.name=Bâton d'obisidienne Infusé
+
+item.redstonearsenal.tool.wrench.name=OmniClé Infusée par du Flux
+item.redstonearsenal.tool.battleWrench.name=Clé de Bataille Infusée par du Flux
+item.redstonearsenal.tool.sword.name=Épée Infusée par du Flux
+item.redstonearsenal.tool.shovel.name=Pelle Infusée par du Flux
+item.redstonearsenal.tool.pickaxe.name=Pioche Infusée par du Flux
+item.redstonearsenal.tool.axe.name=Hache Infusée par du Flux
+item.redstonearsenal.tool.sickle.name=Faucille Infusée par du Flux
+item.redstonearsenal.tool.bow.name=Arc Infusé par du Flux
+
+item.redstonearsenal.tool.enderium.pickaxe.name=Pioche Infusée par de l'Enderium
+item.redstonearsenal.tool.enderium.sword.name=Épée Infusée par de l'Enderium
+item.redstonearsenal.tool.enderium.shovel.name=Pelle Infusée par de l'Enderium
+item.redstonearsenal.tool.enderium.shovel.name=Pelle Infusée par de l'Enderium
+item.redstonearsenal.tool.enderium.axe.name=Hache Infusée par de l'Enderium
+item.redstonearsenal.tool.enderium.sickle.name=Faucille Infusée par de l'Enerium
+item.redstonearsenal.tool.enderium.battleWrench.name=Clé de Bataille Infusée par de l'Enderium
+
+itemGroup.redstonearsenal.creativeTab=Redstone Arsenal
+
+keybind.redstonearsenal.empower=Rendre plus/moins puissant l'outil/arme de Flux
+
+tile.redstonearsenal.storage.electrumFlux.name=Block d'Électrum Fluxé
+tile.redstonearsenal.storage.crystalFlux.name=Block de Crystal de Flux

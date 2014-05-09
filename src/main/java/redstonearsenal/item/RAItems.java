@@ -14,11 +14,17 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import redstonearsenal.RedstoneArsenal;
 import redstonearsenal.block.BlockStorage;
+import redstonearsenal.item.tool.ItemAxeEnderium;
 import redstonearsenal.item.tool.ItemAxeRF;
+import redstonearsenal.item.tool.ItemPickaxeEnderium;
 import redstonearsenal.item.tool.ItemPickaxeRF;
+import redstonearsenal.item.tool.ItemShovelEnderium;
 import redstonearsenal.item.tool.ItemShovelRF;
+import redstonearsenal.item.tool.ItemSickleEnderium;
 import redstonearsenal.item.tool.ItemSickleRF;
+import redstonearsenal.item.tool.ItemSwordEnderium;
 import redstonearsenal.item.tool.ItemSwordRF;
+import redstonearsenal.item.tool.ItemWrenchBattleEnderium;
 import redstonearsenal.item.tool.ItemWrenchBattleRF;
 import redstonearsenal.item.tool.ItemWrenchRF;
 import cofh.api.core.IInitializer;
@@ -34,32 +40,34 @@ public class RAItems {
 	public static final String TOOL = "redstonearsenal.tool.";
 	public static final String TOOL_CONFIG_FLUX = "Tool.Flux.";
 	public static final String TOOL_TEX_FLUX = "redstonearsenal:tool/Flux";
+	public static final String TOOL_TEX_ENDERIUM = "redstonearsenal:tool/Enderium";
 
 	public static void preInit() {
 
-		int harvestLevel = RedstoneArsenal.config.get("item.feature", "ToolFluxInfusedHarvestLevel", 4);
+		int harvestLevelFlux = RedstoneArsenal.config.get("item.feature", "ToolFluxInfusedHarvestLevel", 4);
+		int harvestLevelEnderium = RedstoneArsenal.config.get("item.feature", "ToolEnderiumInfusedHarvestLevel", Integer.MAX_VALUE);
 
-		if (harvestLevel < 1) {
-			harvestLevel = 1;
+		if (harvestLevelFlux < 1) {
+			harvestLevelFlux = 1;
 		}
 		itemMaterial = (ItemBase) new ItemBase("redstonearsenal").setUnlocalizedName("material").setCreativeTab(RedstoneArsenal.tab);
 
-		itemWrench = new ItemWrenchRF(TOOL_MATERIAL_FLUX).setUnlocalizedName(TOOL + "wrench").setTextureName(TOOL_TEX_FLUX + "Wrench")
-				.setCreativeTab(RedstoneArsenal.tab);
-		itemBattleWrench = new ItemWrenchBattleRF(TOOL_MATERIAL_FLUX).setUnlocalizedName(TOOL + "battleWrench").setTextureName(TOOL_TEX_FLUX + "BattleWrench")
-				.setCreativeTab(RedstoneArsenal.tab);
-		itemSword = new ItemSwordRF(TOOL_MATERIAL_FLUX).setUnlocalizedName(TOOL + "sword").setTextureName(TOOL_TEX_FLUX + "Sword")
-				.setCreativeTab(RedstoneArsenal.tab);
-		itemShovel = new ItemShovelRF(TOOL_MATERIAL_FLUX, harvestLevel).setUnlocalizedName(TOOL + "shovel").setTextureName(TOOL_TEX_FLUX + "Shovel")
-				.setCreativeTab(RedstoneArsenal.tab);
-		itemPickaxe = new ItemPickaxeRF(TOOL_MATERIAL_FLUX, harvestLevel).setUnlocalizedName(TOOL + "pickaxe").setTextureName(TOOL_TEX_FLUX + "Pickaxe")
-				.setCreativeTab(RedstoneArsenal.tab);
-		itemAxe = new ItemAxeRF(TOOL_MATERIAL_FLUX, harvestLevel).setUnlocalizedName(TOOL + "axe").setTextureName(TOOL_TEX_FLUX + "Axe")
-				.setCreativeTab(RedstoneArsenal.tab);
-		itemSickle = new ItemSickleRF(TOOL_MATERIAL_FLUX).setUnlocalizedName(TOOL + "sickle").setTextureName(TOOL_TEX_FLUX + "Sickle")
-				.setCreativeTab(RedstoneArsenal.tab);
+		itemWrench = new ItemWrenchRF(TOOL_MATERIAL_FLUX).setUnlocalizedName(TOOL + "wrench").setTextureName(TOOL_TEX_FLUX + "Wrench").setCreativeTab(RedstoneArsenal.tab);
+		itemBattleWrench = new ItemWrenchBattleRF(TOOL_MATERIAL_FLUX).setUnlocalizedName(TOOL + "battleWrench").setTextureName(TOOL_TEX_FLUX + "BattleWrench").setCreativeTab(RedstoneArsenal.tab);
+		itemSword = new ItemSwordRF(TOOL_MATERIAL_FLUX).setUnlocalizedName(TOOL + "sword").setTextureName(TOOL_TEX_FLUX + "Sword").setCreativeTab(RedstoneArsenal.tab);
+		itemShovel = new ItemShovelRF(TOOL_MATERIAL_FLUX, harvestLevelFlux).setUnlocalizedName(TOOL + "shovel").setTextureName(TOOL_TEX_FLUX + "Shovel").setCreativeTab(RedstoneArsenal.tab);
+		itemPickaxe = new ItemPickaxeRF(TOOL_MATERIAL_FLUX, harvestLevelFlux).setUnlocalizedName(TOOL + "pickaxe").setTextureName(TOOL_TEX_FLUX + "Pickaxe").setCreativeTab(RedstoneArsenal.tab);
+		itemAxe = new ItemAxeRF(TOOL_MATERIAL_FLUX, harvestLevelFlux).setUnlocalizedName(TOOL + "axe").setTextureName(TOOL_TEX_FLUX + "Axe").setCreativeTab(RedstoneArsenal.tab);
+		itemSickle = new ItemSickleRF(TOOL_MATERIAL_FLUX).setUnlocalizedName(TOOL + "sickle").setTextureName(TOOL_TEX_FLUX + "Sickle").setCreativeTab(RedstoneArsenal.tab);
 		// itemBow = new ItemBowRF(RedstoneArsenal.config.getItemId(TOOL_CONFIG_FLUX + "Bow"), TOOL_MATERIAL_FLUX).setUnlocalizedName(TOOL + "bow")
 		// .setTextureName(TOOL_TEX_FLUX + "Bow").setCreativeTab(RedstoneArsenal.tab);
+
+		itemEnderiumPick = new ItemPickaxeEnderium(TOOL_MATERIAL_ENDERIUM, harvestLevelEnderium).setUnlocalizedName(TOOL + "enderium.pickaxe").setTextureName(TOOL_TEX_ENDERIUM + "Pickaxe").setCreativeTab(RedstoneArsenal.tab);
+		itemEnderiumSword = new ItemSwordEnderium(TOOL_MATERIAL_ENDERIUM).setUnlocalizedName(TOOL + "enderium.sword").setTextureName(TOOL_TEX_ENDERIUM + "Sword").setCreativeTab(RedstoneArsenal.tab);
+		itemEnderiumShovel = new ItemShovelEnderium(TOOL_MATERIAL_ENDERIUM, harvestLevelEnderium).setUnlocalizedName(TOOL + "enderium.shovel").setTextureName(TOOL_TEX_ENDERIUM + "Shovel").setCreativeTab(RedstoneArsenal.tab);
+		itemEnderiumAxe = new ItemAxeEnderium(TOOL_MATERIAL_ENDERIUM, harvestLevelEnderium).setUnlocalizedName(TOOL + "enderium.axe").setTextureName(TOOL_TEX_ENDERIUM + "Axe").setCreativeTab(RedstoneArsenal.tab);
+		itemEnderiumSickle = new ItemSickleEnderium(TOOL_MATERIAL_ENDERIUM).setUnlocalizedName(TOOL + "enderium.sickle").setTextureName(TOOL_TEX_ENDERIUM + "Sickle").setCreativeTab(RedstoneArsenal.tab);
+		itemEnderiumBattleWrench = new ItemWrenchBattleEnderium(TOOL_MATERIAL_ENDERIUM).setUnlocalizedName(TOOL + "enderium.battleWrench").setTextureName(TOOL_TEX_ENDERIUM + "BattleWrench").setCreativeTab(RedstoneArsenal.tab);
 
 		GameRegistry.registerItem(itemWrench, "tool.wrench");
 		GameRegistry.registerItem(itemBattleWrench, "tool.battleWrench");
@@ -69,6 +77,13 @@ public class RAItems {
 		GameRegistry.registerItem(itemAxe, "tool.axe");
 		GameRegistry.registerItem(itemSickle, "tool.sickle");
 		// GameRegistry.registerItem(itemBow, "tool.bow");
+
+		GameRegistry.registerItem(itemEnderiumPick, "tool.enderium.pickaxe");
+		GameRegistry.registerItem(itemEnderiumSword, "tool.enderium.sword");
+		GameRegistry.registerItem(itemEnderiumShovel, "tool.enderium.shovel");
+		GameRegistry.registerItem(itemEnderiumAxe, "tool.enderium.axe");
+		GameRegistry.registerItem(itemEnderiumSickle, "tool.enderium.sickle");
+		GameRegistry.registerItem(itemEnderiumBattleWrench, "tool.enderium.battleWrench");
 
 		blockStorage = new BlockStorage();
 		((IInitializer) blockStorage).preInit();
@@ -104,6 +119,13 @@ public class RAItems {
 		fluxSickle = EnergyHelper.setDefaultEnergyTag(new ItemStack(itemSickle), 0);
 		// fluxBow = new ItemStack(itemBow);
 
+		enderiumPickaxe = EnergyHelper.setDefaultEnergyTag(new ItemStack(itemEnderiumPick), 0);
+		enderiumSword = EnergyHelper.setDefaultEnergyTag(new ItemStack(itemEnderiumSword), 0);
+		enderiumShovel = EnergyHelper.setDefaultEnergyTag(new ItemStack(itemEnderiumShovel), 0);
+		enderiumAxe = EnergyHelper.setDefaultEnergyTag(new ItemStack(itemEnderiumAxe), 0);
+		enderiumSickle = EnergyHelper.setDefaultEnergyTag(new ItemStack(itemEnderiumSickle), 0);
+		enderiumBattleWrench = EnergyHelper.setDefaultEnergyTag(new ItemStack(itemEnderiumBattleWrench), 0);
+
 		GameRegistry.registerCustomItemStack("fluxWrench", fluxWrench);
 		GameRegistry.registerCustomItemStack("fluxBattleWrench", fluxBattleWrench);
 		GameRegistry.registerCustomItemStack("fluxSword", fluxSword);
@@ -113,12 +135,17 @@ public class RAItems {
 		GameRegistry.registerCustomItemStack("fluxSickle", fluxSickle);
 		// GameRegistry.registerCustomItemStack("fluxBow", fluxBow);
 
-		if (Loader.isModLoaded("ThermalExpansion")) {
-			ThermalExpansionHelper.addTransposerFill(8000, new ItemStack(Items.diamond), gemCrystalFlux,
-					new FluidStack(FluidRegistry.getFluid("redstone"), 200), false);
+		GameRegistry.registerCustomItemStack("enderiumPickaxe", enderiumPickaxe);
+		GameRegistry.registerCustomItemStack("enderiumSword", enderiumSword);
+		GameRegistry.registerCustomItemStack("enderiumAxe", enderiumAxe);
+		GameRegistry.registerCustomItemStack("enderiumShovel", enderiumShovel);
+		GameRegistry.registerCustomItemStack("enderiumSickle", enderiumSickle);
+		GameRegistry.registerCustomItemStack("enderiumBattleWrench", enderiumBattleWrench);
 
-			ThermalExpansionHelper.addTransposerFill(4000, GameRegistry.findItemStack("ThermalExpansion", "dustElectrum", 1), dustElectrumFlux, new FluidStack(
-					FluidRegistry.getFluid("redstone"), 200), false);
+		if (Loader.isModLoaded("ThermalExpansion")) {
+			ThermalExpansionHelper.addTransposerFill(8000, new ItemStack(Items.diamond), gemCrystalFlux, new FluidStack(FluidRegistry.getFluid("redstone"), 200), false);
+
+			ThermalExpansionHelper.addTransposerFill(4000, GameRegistry.findItemStack("ThermalExpansion", "dustElectrum", 1), dustElectrumFlux, new FluidStack(FluidRegistry.getFluid("redstone"), 200), false);
 
 			ThermalExpansionHelper.addSmelterBlastOre("ElectrumFlux");
 		}
@@ -132,13 +159,11 @@ public class RAItems {
 
 		if (!Loader.isModLoaded("ThermalExpansion")) {
 			if (ItemHelper.oreNameExists("dustElectrum")) {
-				GameRegistry.addRecipe(new ShapelessOreRecipe(dustElectrumFlux, new Object[] { "dustElectrum", "dustRedstone", "dustRedstone", "dustRedstone",
-						"dustRedstone", "dustRedstone" }));
+				GameRegistry.addRecipe(new ShapelessOreRecipe(dustElectrumFlux, new Object[] { "dustElectrum", "dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone" }));
 			} else {
 				GameRegistry.addRecipe(new ShapelessOreRecipe(dustElectrumFlux, new Object[] { "ingotGold", "blockRedstone" }));
 			}
-			GameRegistry.addRecipe(new ShapelessOreRecipe(gemCrystalFlux, new Object[] { Items.diamond, "dustRedstone", "dustRedstone", "dustRedstone",
-					"dustRedstone", "dustRedstone" }));
+			GameRegistry.addRecipe(new ShapelessOreRecipe(gemCrystalFlux, new Object[] { Items.diamond, "dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone" }));
 			FurnaceRecipes.smelting().func_151394_a(dustElectrumFlux, ingotElectrumFlux, 0.0F);
 		}
 		if (ItemHelper.oreNameExists("dustObsidian")) {
@@ -205,6 +230,13 @@ public class RAItems {
 	public static Item itemSickle;
 	public static Item itemBow;
 
+	public static Item itemEnderiumPick;
+	public static Item itemEnderiumSword;
+	public static Item itemEnderiumShovel;
+	public static Item itemEnderiumAxe;
+	public static Item itemEnderiumSickle;
+	public static Item itemEnderiumBattleWrench;
+
 	public static ItemStack dustElectrumFlux;
 	public static ItemStack ingotElectrumFlux;
 	public static ItemStack nuggetElectrumFlux;
@@ -221,5 +253,13 @@ public class RAItems {
 	public static ItemStack fluxSickle;
 	public static ItemStack fluxBow;
 
+	public static ItemStack enderiumPickaxe;
+	public static ItemStack enderiumSword;
+	public static ItemStack enderiumShovel;
+	public static ItemStack enderiumAxe;
+	public static ItemStack enderiumSickle;
+	public static ItemStack enderiumBattleWrench;
+
 	public static final Item.ToolMaterial TOOL_MATERIAL_FLUX = EnumHelper.addToolMaterial("RA_FLUX", 3, 100, 8.0F, 0, 25);
+	public static final Item.ToolMaterial TOOL_MATERIAL_ENDERIUM = EnumHelper.addToolMaterial("RA_ENDERIUM", Integer.MAX_VALUE, 100, 12.0F, 0, 30);
 }

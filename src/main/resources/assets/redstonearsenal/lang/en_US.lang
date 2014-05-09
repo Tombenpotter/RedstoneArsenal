@@ -25,6 +25,13 @@ item.redstonearsenal.tool.axe.name=Flux-Infused Axe
 item.redstonearsenal.tool.sickle.name=Flux-Infused Sickle
 item.redstonearsenal.tool.bow.name=Flux-Infused Bow
 
+item.redstonearsenal.tool.enderium.pickaxe.name=Enderium-Infused Pickaxe
+item.redstonearsenal.tool.enderium.sword.name=Enderium-Infused Sword
+item.redstonearsenal.tool.enderium.shovel.name=Enderium-Infused Shovel
+item.redstonearsenal.tool.enderium.axe.name=Enderium-Infused Axe
+item.redstonearsenal.tool.enderium.sickle.name=Enderium Infused Sickle
+item.redstonearsenal.tool.enderium.battleWrench.name=Enderium Infused BattleWrench
+
 itemGroup.redstonearsenal.creativeTab=Redstone Arsenal
 
 keybind.redstonearsenal.empower=Empower/Quell Flux Tool/Weapon
