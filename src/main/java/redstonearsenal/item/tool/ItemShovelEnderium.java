@@ -2,15 +2,16 @@ package redstonearsenal.item.tool;
 
 import java.util.List;
 
-import cofh.util.StringHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.BonemealEvent;
+import cofh.util.StringHelper;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 
 public class ItemShovelEnderium extends ItemShovelRF {
@@ -68,7 +69,36 @@ public class ItemShovelEnderium extends ItemShovelRF {
 		}
 		return false;
 	}
-	
+
+	@Override
+	public boolean onBlockDestroyed(ItemStack stack, World world, Block block, int x, int y, int z, EntityLivingBase entity) {
+
+		if (!(entity instanceof EntityPlayer)) {
+			return false;
+		}
+		if (block.getBlockHardness(world, x, y, z) == 0.0D) {
+			return true;
+		}
+		EntityPlayer player = (EntityPlayer) entity;
+
+		if (effectiveBlocks.contains(block) && isEmpowered(stack)) {
+			for (int i = x - 2; i <= x + 2; i++) {
+				for (int k = z - 2; k <= z + 2; k++) {
+					for (int j = y - 2; j <= y + 2; j++) {
+						if (world.getBlock(i, j, k) == block) {
+							harvestBlock(world, i, j, k, player);
+						}
+					}
+				}
+			}
+		}
+
+		if (!player.capabilities.isCreativeMode) {
+			useEnergy(stack, false);
+		}
+		return true;
+	}
+
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean check) {
 
