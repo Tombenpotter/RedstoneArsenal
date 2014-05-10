@@ -1,14 +1,16 @@
 package redstonearsenal.item.tool;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import cofh.util.MathHelper;
 
 public class ItemPickaxeEnderium extends ItemPickaxeRF {
-	int range = 3;
+	int range = 4;
 
 	public ItemPickaxeEnderium(Item.ToolMaterial toolMaterial) {
 		super(toolMaterial);
@@ -23,32 +25,65 @@ public class ItemPickaxeEnderium extends ItemPickaxeRF {
 	}
 
 	@Override
-	/** Temporary Empowerement Bonus **/
-	public boolean onBlockStartBreak(ItemStack stack, int x, int y, int z, EntityPlayer player) {
-		if (player.isSneaking() && isEmpowered(stack)) {
-			if (!(player instanceof EntityPlayer)) {
-				return false;
-			}
-			World world = player.worldObj;
-			Block block = world.getBlock(x, y, z);
+	public boolean onBlockDestroyed(ItemStack stack, World world, Block block, int x, int y, int z, EntityLivingBase entity) {
 
-			if ((block.getMaterial() == Material.rock || block.getMaterial() == Material.iron || block.getMaterial() == Material.anvil) && isEmpowered(stack)) {
-				for (int i = x - 1; i <= x + 1; i++) {
-					for (int k = z - 1; k <= z + 1; k++) {
-						for (int j = y - 2; j <= y + 2; j++) {
-							if (world.getBlock(i, j, k).getMaterial() == Material.rock || world.getBlock(i, j, k).getMaterial() == Material.iron || world.getBlock(i, j, k).getMaterial() == Material.anvil) {
-								harvestBlock(world, i, j, k, player);
+		if (!(entity instanceof EntityPlayer)) {
+			return false;
+		}
+		EntityPlayer player = (EntityPlayer) entity;
+
+		if ((block == Blocks.cobblestone || block == Blocks.stone || block == Blocks.sandstone || block == Blocks.netherrack) && isEmpowered(stack)) {
+			for (int i = x - 1; i <= x + 1; i++) {
+				for (int k = z - 1; k <= z + 1; k++) {
+					for (int j = y - 2; j <= y + 2; j++) {
+						if (world.getBlock(i, j, k) == Blocks.cobblestone || world.getBlock(i, j, k) == Blocks.stone || world.getBlock(i, j, k) == Blocks.sandstone || world.getBlock(i, j, k) == Blocks.netherrack) {
+							int facing = MathHelper.floor(entity.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+							if (facing == 0) {
+								int coordZ = z - range;
+								if (world.isAirBlock(i, j, coordZ)) {
+									world.setBlockToAir(i, j, k);
+									world.setBlock(i, j, coordZ, block);
+									for (int n = 0; n <= 5; n++)
+										world.spawnParticle("portal", i, j, k, 1, 1, 1);
+								} else
+									harvestBlock(world, i, j, k, player);
+							} else if (facing == 1) {
+								int coordX = x + range;
+								if (world.isAirBlock(coordX, j, k)) {
+									world.setBlockToAir(i, j, k);
+									world.setBlock(coordX, j, k, block);
+									for (int n = 0; n <= 5; n++)
+										world.spawnParticle("portal", i, j, k, 1, 1, 1);
+								} else
+									harvestBlock(world, i, j, k, player);
+							} else if (facing == 2) {
+								int coordZ = z + range;
+								if (world.isAirBlock(i, j, coordZ)) {
+									world.setBlockToAir(i, j, k);
+									world.setBlock(i, j, coordZ, block);
+									for (int n = 0; n <= 5; n++)
+										world.spawnParticle("portal", i, j, k, 1, 1, 1);
+								} else
+									harvestBlock(world, i, j, k, player);
+							} else if (facing == 3) {
+								int coordX = x - range;
+								if (world.isAirBlock(coordX, j, k)) {
+									world.setBlockToAir(i, j, k);
+									world.setBlock(coordX, j, k, block);
+									for (int n = 0; n <= 5; n++)
+										world.spawnParticle("portal", i, j, k, 1, 1, 1);
+								} else
+									harvestBlock(world, i, j, k, player);
 							}
 						}
 					}
 				}
-				return true;
-			}
-			if (!player.capabilities.isCreativeMode) {
-				useEnergy(stack, false);
 			}
 			return true;
 		}
-		return false;
+		if (!player.capabilities.isCreativeMode) {
+			useEnergy(stack, false);
+		}
+		return true;
 	}
 }
