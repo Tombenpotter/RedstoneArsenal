@@ -38,42 +38,43 @@ public class ItemPickaxeEnderium extends ItemPickaxeRF {
 					for (int j = y - 2; j <= y + 2; j++) {
 						if (world.getBlock(i, j, k) == Blocks.cobblestone || world.getBlock(i, j, k) == Blocks.stone || world.getBlock(i, j, k) == Blocks.sandstone || world.getBlock(i, j, k) == Blocks.netherrack) {
 							int facing = MathHelper.floor(entity.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+
 							if (facing == 0) {
 								int coordZ = z - range;
 								if (world.isAirBlock(i, j, coordZ)) {
-									world.setBlockToAir(i, j, k);
+									world.setBlockToAir(i, j, z);
 									world.setBlock(i, j, coordZ, block);
 									for (int n = 0; n <= 5; n++)
-										world.spawnParticle("portal", i, j, k, 1, 1, 1);
+										world.spawnParticle("portal", i, j, z, 1, 1, 1);
 								} else
-									harvestBlock(world, i, j, k, player);
+									harvestBlock(world, i, j, z, player);
 							} else if (facing == 1) {
 								int coordX = x + range;
 								if (world.isAirBlock(coordX, j, k)) {
-									world.setBlockToAir(i, j, k);
+									world.setBlockToAir(x, j, k);
 									world.setBlock(coordX, j, k, block);
 									for (int n = 0; n <= 5; n++)
-										world.spawnParticle("portal", i, j, k, 1, 1, 1);
+										world.spawnParticle("portal", x, j, k, 1, 1, 1);
 								} else
-									harvestBlock(world, i, j, k, player);
+									harvestBlock(world, x, j, k, player);
 							} else if (facing == 2) {
 								int coordZ = z + range;
 								if (world.isAirBlock(i, j, coordZ)) {
-									world.setBlockToAir(i, j, k);
+									world.setBlockToAir(i, j, z);
 									world.setBlock(i, j, coordZ, block);
 									for (int n = 0; n <= 5; n++)
-										world.spawnParticle("portal", i, j, k, 1, 1, 1);
+										world.spawnParticle("portal", i, j, z, 1, 1, 1);
 								} else
-									harvestBlock(world, i, j, k, player);
+									harvestBlock(world, i, j, z, player);
 							} else if (facing == 3) {
 								int coordX = x - range;
 								if (world.isAirBlock(coordX, j, k)) {
-									world.setBlockToAir(i, j, k);
+									world.setBlockToAir(x, j, k);
 									world.setBlock(coordX, j, k, block);
 									for (int n = 0; n <= 5; n++)
-										world.spawnParticle("portal", i, j, k, 1, 1, 1);
+										world.spawnParticle("portal", x, j, k, 1, 1, 1);
 								} else
-									harvestBlock(world, i, j, k, player);
+									harvestBlock(world, x, j, k, player);
 							}
 						}
 					}
