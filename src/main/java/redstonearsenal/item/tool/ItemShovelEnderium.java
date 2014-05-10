@@ -1,5 +1,8 @@
 package redstonearsenal.item.tool;
 
+import java.util.List;
+
+import cofh.util.StringHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.entity.player.EntityPlayer;
@@ -64,5 +67,16 @@ public class ItemShovelEnderium extends ItemShovelRF {
 			return true;
 		}
 		return false;
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean check) {
+
+		super.addInformation(stack, player, list, check);
+		if (!StringHelper.isShiftKeyDown()) {
+			return;
+		}
+		list.remove(StringHelper.getFlavorText("info.redstonearsenal.tool.shovel"));
+		list.add(StringHelper.getFlavorText("info.redstonearsenal.tool.enderiumshovel"));
 	}
 }

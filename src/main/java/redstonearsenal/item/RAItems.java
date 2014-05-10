@@ -98,7 +98,9 @@ public class RAItems {
 
 		dustElectrumFlux = itemMaterial.addItem(0, "dustElectrumFlux", 1);
 		ingotElectrumFlux = itemMaterial.addItem(32, "ingotElectrumFlux", 1);
+		ingotGelifiedEnderium = itemMaterial.addItem(33, "ingotGelifiedEnderium", 1);
 		nuggetElectrumFlux = itemMaterial.addItem(64, "nuggetElectrumFlux", 1);
+		nuggetGelifiedEnderium = itemMaterial.addItem(65, "nuggetGelifiedEnderium", 1);
 		gemCrystalFlux = itemMaterial.addItem(96, "gemCrystalFlux", 1);
 
 		rodObsidian = itemMaterial.addItem(192, "rodObsidian");
@@ -107,7 +109,9 @@ public class RAItems {
 		OreDictionary.registerOre("dustElectrumFlux", dustElectrumFlux);
 		OreDictionary.registerOre("ingotElectrumFlux", ingotElectrumFlux);
 		OreDictionary.registerOre("nuggetElectrumFlux", nuggetElectrumFlux);
+		OreDictionary.registerOre("nuggetGelifiedEnderium", nuggetGelifiedEnderium);
 		OreDictionary.registerOre("gemCrystalFlux", gemCrystalFlux);
+		OreDictionary.registerOre("ingotGelifiedEnderium", ingotGelifiedEnderium);
 
 		/* Tools */
 		fluxWrench = EnergyHelper.setDefaultEnergyTag(new ItemStack(itemWrench), 0);
@@ -154,7 +158,9 @@ public class RAItems {
 	public static void postInit() {
 
 		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(nuggetElectrumFlux, 9), "ingotElectrumFlux"));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(nuggetGelifiedEnderium, 9), "ingotGelifiedEnderium"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(ingotElectrumFlux, new Object[] { "III", "III", "III", 'I', "nuggetElectrumFlux" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(ingotGelifiedEnderium, new Object[] { "III", "III", "III", 'I', "nuggetGelifiedEnderium" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(rodObsidianFlux, new Object[] { "  O", " B ", "O  ", 'B', rodObsidian, 'O', "gemCrystalFlux" }));
 
 		if (!Loader.isModLoaded("ThermalExpansion")) {
@@ -239,8 +245,11 @@ public class RAItems {
 
 	public static ItemStack dustElectrumFlux;
 	public static ItemStack ingotElectrumFlux;
+	public static ItemStack ingotGelifiedEnderium;
 	public static ItemStack nuggetElectrumFlux;
+	public static ItemStack nuggetGelifiedEnderium;
 	public static ItemStack gemCrystalFlux;
+
 	public static ItemStack rodObsidian;
 	public static ItemStack rodObsidianFlux;
 

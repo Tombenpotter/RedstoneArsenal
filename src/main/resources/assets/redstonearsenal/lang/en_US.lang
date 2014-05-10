@@ -8,10 +8,13 @@ info.redstonearsenal.tool.chargeOff=to Quell
 info.redstonearsenal.tool.energyPerUse=RF Per Use
 info.redstonearsenal.tool.shovel=Also serves as a Hoe.
 info.redstonearsenal.tool.wrench=Also serves as Shears.
+info.redstonearsenal.tool.enderiumshovel=Also serves as Bonemeal.
 
 item.redstonearsenal.material.dustElectrumFlux.name=Fluxed Electrum Blend
 item.redstonearsenal.material.ingotElectrumFlux.name=Fluxed Electrum Ingot
+item.redstonearsenal.material.ingotGelifiedEnderium.name= Gelified Enderium Ingot
 item.redstonearsenal.material.nuggetElectrumFlux.name=Fluxed Electrum Nugget
+item.redstonearsenal.material.nuggetGelifiedEnderium.name=Gelified Enderium Nugget
 item.redstonearsenal.material.gemCrystalFlux.name=Flux Crystal
 item.redstonearsenal.material.rodObsidian.name=Obsidian Rod
 item.redstonearsenal.material.rodObsidianFlux.name=Infused Obsidian Rod
@@ -29,8 +32,8 @@ item.redstonearsenal.tool.enderium.pickaxe.name=Enderium-Infused Pickaxe
 item.redstonearsenal.tool.enderium.sword.name=Enderium-Infused Sword
 item.redstonearsenal.tool.enderium.shovel.name=Enderium-Infused Shovel
 item.redstonearsenal.tool.enderium.axe.name=Enderium-Infused Axe
-item.redstonearsenal.tool.enderium.sickle.name=Enderium Infused Sickle
-item.redstonearsenal.tool.enderium.battleWrench.name=Enderium Infused BattleWrench
+item.redstonearsenal.tool.enderium.sickle.name=Enderium-Infused Sickle
+item.redstonearsenal.tool.enderium.battleWrench.name=Enderium-Infused BattleWrench
 
 itemGroup.redstonearsenal.creativeTab=Redstone Arsenal
 
