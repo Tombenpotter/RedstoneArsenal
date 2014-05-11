@@ -1,5 +1,13 @@
 package redstonearsenal.item;
 
+import cofh.api.core.IInitializer;
+import cofh.item.ItemBase;
+import cofh.util.EnergyHelper;
+import cofh.util.ItemHelper;
+import cofh.util.ThermalExpansionHelper;
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -12,6 +20,7 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
+
 import redstonearsenal.RedstoneArsenal;
 import redstonearsenal.block.BlockStorage;
 import redstonearsenal.item.tool.ItemAxeEnderium;
@@ -27,13 +36,6 @@ import redstonearsenal.item.tool.ItemSwordRF;
 import redstonearsenal.item.tool.ItemWrenchBattleEnderium;
 import redstonearsenal.item.tool.ItemWrenchBattleRF;
 import redstonearsenal.item.tool.ItemWrenchRF;
-import cofh.api.core.IInitializer;
-import cofh.item.ItemBase;
-import cofh.util.EnergyHelper;
-import cofh.util.ItemHelper;
-import cofh.util.ThermalExpansionHelper;
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RAItems {
 
