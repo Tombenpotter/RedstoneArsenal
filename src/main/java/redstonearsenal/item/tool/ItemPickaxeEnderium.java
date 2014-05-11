@@ -1,5 +1,7 @@
 package redstonearsenal.item.tool;
 
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,6 +13,7 @@ import cofh.util.MathHelper;
 
 public class ItemPickaxeEnderium extends ItemPickaxeRF {
 	int range = 4;
+	Random random = new Random();
 
 	public ItemPickaxeEnderium(Item.ToolMaterial toolMaterial) {
 		super(toolMaterial);
@@ -46,6 +49,8 @@ public class ItemPickaxeEnderium extends ItemPickaxeRF {
 									world.setBlock(i, j, coordZ, block);
 									for (int n = 0; n <= 5; n++)
 										world.spawnParticle("portal", i, j, z, 1, 1, 1);
+									if (random.nextInt(10) == 0)
+										world.playSoundAtEntity(entity, "mob.endermen.portal", 1.0F, 1.0F);
 								} else
 									harvestBlock(world, i, j, z, player);
 							} else if (facing == 1) {
@@ -55,6 +60,8 @@ public class ItemPickaxeEnderium extends ItemPickaxeRF {
 									world.setBlock(coordX, j, k, block);
 									for (int n = 0; n <= 5; n++)
 										world.spawnParticle("portal", x, j, k, 1, 1, 1);
+									if (random.nextInt(10) == 0)
+										world.playSoundAtEntity(entity, "mob.endermen.portal", 1.0F, 1.0F);
 								} else
 									harvestBlock(world, x, j, k, player);
 							} else if (facing == 2) {
@@ -64,6 +71,8 @@ public class ItemPickaxeEnderium extends ItemPickaxeRF {
 									world.setBlock(i, j, coordZ, block);
 									for (int n = 0; n <= 5; n++)
 										world.spawnParticle("portal", i, j, z, 1, 1, 1);
+									if (random.nextInt(10) == 0)
+										world.playSoundAtEntity(entity, "mob.endermen.portal", 1.0F, 1.0F);
 								} else
 									harvestBlock(world, i, j, z, player);
 							} else if (facing == 3) {
@@ -73,6 +82,8 @@ public class ItemPickaxeEnderium extends ItemPickaxeRF {
 									world.setBlock(coordX, j, k, block);
 									for (int n = 0; n <= 5; n++)
 										world.spawnParticle("portal", x, j, k, 1, 1, 1);
+									if (random.nextInt(10) == 0)
+										world.playSoundAtEntity(entity, "mob.endermen.portal", 1.0F, 1.0F);
 								} else
 									harvestBlock(world, x, j, k, player);
 							}
@@ -80,6 +91,9 @@ public class ItemPickaxeEnderium extends ItemPickaxeRF {
 					}
 				}
 			}
+			if (!player.capabilities.isCreativeMode)
+				useEnergy(stack, false);
+
 			return true;
 		}
 		if (!player.capabilities.isCreativeMode) {
