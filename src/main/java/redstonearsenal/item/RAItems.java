@@ -39,6 +39,7 @@ public class RAItems {
 
 	public static final String TOOL = "redstonearsenal.tool.";
 	public static final String TOOL_CONFIG_FLUX = "Tool.Flux.";
+	public static final String TOOL_CONFIG_ENDERIUM = "Tool.Enderium.";
 	public static final String TOOL_TEX_FLUX = "redstonearsenal:tool/Flux";
 	public static final String TOOL_TEX_ENDERIUM = "redstonearsenal:tool/Enderium";
 
@@ -168,6 +169,7 @@ public class RAItems {
 				GameRegistry.addRecipe(new ShapelessOreRecipe(dustElectrumFlux, new Object[] { "dustElectrum", "dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone" }));
 			} else {
 				GameRegistry.addRecipe(new ShapelessOreRecipe(dustElectrumFlux, new Object[] { "ingotGold", "blockRedstone" }));
+				GameRegistry.addRecipe(new ShapedOreRecipe(ingotGelifiedEnderium, new Object[] { "PSP", "SIS", "PSP", 'I', "ingotIron", 'P', Items.ender_pearl, 'S', Blocks.packed_ice}));
 			}
 			GameRegistry.addRecipe(new ShapelessOreRecipe(gemCrystalFlux, new Object[] { Items.diamond, "dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone" }));
 			FurnaceRecipes.smelting().func_151394_a(dustElectrumFlux, ingotElectrumFlux, 0.0F);
@@ -198,6 +200,7 @@ public class RAItems {
 		if (enable[6]) {
 			GameRegistry.addRecipe(new ShapedOreRecipe(fluxSickle, new Object[] { " I ", "  I", "RI ", 'I', "ingotElectrumFlux", 'R', rodObsidianFlux }));
 		}
+		addReverseStorageRecipe(ingotGelifiedEnderium, "blockGelifiedEnderium");
 		addReverseStorageRecipe(ingotElectrumFlux, "blockElectrumFlux");
 		addReverseStorageRecipe(gemCrystalFlux, "blockCrystalFlux");
 
@@ -209,7 +212,7 @@ public class RAItems {
 		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(nine, 9), new Object[] { one }));
 	}
 
-	public static boolean[] enable = new boolean[8];
+	public static boolean[] enable = new boolean[14];
 
 	static {
 		String category = "item.feature";
@@ -221,6 +224,13 @@ public class RAItems {
 		enable[5] = RedstoneArsenal.config.get(category, TOOL_CONFIG_FLUX + "Axe", true);
 		enable[6] = RedstoneArsenal.config.get(category, TOOL_CONFIG_FLUX + "Sickle", true);
 		// enable[7] = RedstoneArsenal.config.get(category, TOOL_CONFIG_FLUX + "Bow", true);
+		
+		enable[8] = RedstoneArsenal.config.get(category, TOOL_CONFIG_ENDERIUM + "BattleWrench", true);
+		enable[9] = RedstoneArsenal.config.get(category, TOOL_CONFIG_ENDERIUM + "Sword", true);
+		enable[10] = RedstoneArsenal.config.get(category, TOOL_CONFIG_ENDERIUM + "Shovel", true);
+		enable[11] = RedstoneArsenal.config.get(category, TOOL_CONFIG_ENDERIUM + "Pickaxe", true);
+		enable[12] = RedstoneArsenal.config.get(category, TOOL_CONFIG_ENDERIUM + "Axe", true);
+		enable[13] = RedstoneArsenal.config.get(category, TOOL_CONFIG_ENDERIUM + "Sickle", true);
 	}
 
 	public static Block blockStorage;
