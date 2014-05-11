@@ -1,16 +1,5 @@
 package redstonearsenal.block;
 
-import cofh.api.core.IInitializer;
-import cofh.render.IconRegistry;
-import cofh.util.EnergyHelper;
-import cofh.util.ItemHelper;
-import cofh.util.MathHelper;
-import cofh.util.ServerHelper;
-import cofh.util.StringHelper;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import java.util.List;
 
 import net.minecraft.block.Block;
@@ -27,9 +16,18 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
 import redstonearsenal.RedstoneArsenal;
 import redstonearsenal.util.Utils;
+import cofh.api.core.IInitializer;
+import cofh.render.IconRegistry;
+import cofh.util.EnergyHelper;
+import cofh.util.ItemHelper;
+import cofh.util.MathHelper;
+import cofh.util.ServerHelper;
+import cofh.util.StringHelper;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockStorage extends Block implements IInitializer {
 
@@ -101,6 +99,10 @@ public class BlockStorage extends Block implements IInitializer {
 				fluxDamage = damage[1];
 			}
 			break;
+		case 2:
+			if (enableDamage[2]) {
+				fluxDamage = damage[2];
+			}
 		}
 		if (fluxDamage > 0) {
 			entity.attackEntityFrom(Utils.flux, (float) fluxDamage);
@@ -138,12 +140,15 @@ public class BlockStorage extends Block implements IInitializer {
 		String category = "block.feature";
 		enableDamage[0] = RedstoneArsenal.config.get(category, "Storage.Electrum.Damage.Enable", true);
 		enableDamage[1] = RedstoneArsenal.config.get(category, "Storage.Crystal.Damage.Enable", true);
+		enableDamage[2] = RedstoneArsenal.config.get(category, "Storage.Enderium.Damage.Enable", true);
 
 		enableDamageCharge[0] = RedstoneArsenal.config.get(category, "Storage.Electrum.Damage.Charge", true);
 		enableDamageCharge[1] = RedstoneArsenal.config.get(category, "Storage.Crystal.Damage.Charge", true);
+		enableDamageCharge[2] = RedstoneArsenal.config.get(category, "Storage.Enderium.Damage.Charge", true);
 
 		damage[0] = RedstoneArsenal.config.get(category, "Storage.Electrum.Damage.Amount", 0.5);
 		damage[1] = RedstoneArsenal.config.get(category, "Storage.Crystal.Damage.Amount", 1);
+		damage[2] = RedstoneArsenal.config.get(category, "Storage.Enderium.Damage.Amount", 0.5);
 
 		String comment = "Amount of Redstone Flux charged per tick while touching a block; multiplied by damage dealt by the block. Max: 1000; Default: 50";
 		chargeRate = RedstoneArsenal.config.get(category, "Storage.FluxPerTickPerDamage", chargeRate, comment);
@@ -151,9 +156,11 @@ public class BlockStorage extends Block implements IInitializer {
 
 		blockElectrumFlux = new ItemStack(this, 1, 0);
 		blockCrystalFlux = new ItemStack(this, 1, 1);
+		blockGelifiedEnderium = new ItemStack(this, 1, 2);
 
 		ItemHelper.registerWithHandlers("blockElectrumFlux", blockElectrumFlux);
 		ItemHelper.registerWithHandlers("blockCrystalFlux", blockCrystalFlux);
+		ItemHelper.registerWithHandlers("blockGelifiedEnderium", blockGelifiedEnderium);
 
 		return true;
 	}
@@ -169,18 +176,20 @@ public class BlockStorage extends Block implements IInitializer {
 
 		ItemHelper.addStorageRecipe(blockElectrumFlux, "ingotElectrumFlux");
 		ItemHelper.addStorageRecipe(blockCrystalFlux, "gemCrystalFlux");
+		ItemHelper.addStorageRecipe(blockGelifiedEnderium, "ingotGelifiedEnderium");
 
 		return true;
 	}
 
-	public static final String[] NAMES = { "electrumFlux", "crystalFlux" };
+	public static final String[] NAMES = { "electrumFlux", "crystalFlux", "gelifiedEnderium" };
 
-	public static boolean enableDamage[] = new boolean[2];
-	public static boolean enableDamageCharge[] = new boolean[2];
-	public static double damage[] = new double[2];
+	public static boolean enableDamage[] = new boolean[3];
+	public static boolean enableDamageCharge[] = new boolean[3];
+	public static double damage[] = new double[3];
 	public static int chargeRate = 50;
 
 	public static ItemStack blockElectrumFlux;
 	public static ItemStack blockCrystalFlux;
+	public static ItemStack blockGelifiedEnderium;
 
 }
