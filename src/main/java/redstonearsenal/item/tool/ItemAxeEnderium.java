@@ -63,7 +63,7 @@ public class ItemAxeEnderium extends ItemAxeRF {
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
-		if (world.isRaining() || world.isThundering() && isEmpowered(stack)) {
+		if (world.isRaining() && isEmpowered(stack) || world.isThundering() && isEmpowered(stack)) {
 			WorldServer worldserver = MinecraftServer.getServer().worldServers[0];
 			WorldInfo worldinfo = worldserver.getWorldInfo();
 
