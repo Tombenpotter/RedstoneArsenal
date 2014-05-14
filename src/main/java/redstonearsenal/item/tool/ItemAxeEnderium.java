@@ -24,7 +24,7 @@ public class ItemAxeEnderium extends ItemAxeRF {
 		damage = 6;
 		maxEnergy = 320000;
 		energyPerUse = 350;
-		energyPerUseCharged = 2200;
+		energyPerUseCharged = 15000;
 	}
 
 	public ItemAxeEnderium(Item.ToolMaterial toolMaterial, int harvestLevel) {
@@ -63,7 +63,7 @@ public class ItemAxeEnderium extends ItemAxeRF {
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
-		if (world.isRaining() || world.isThundering()) {
+		if (world.isRaining() || world.isThundering() && isEmpowered(stack)) {
 			WorldServer worldserver = MinecraftServer.getServer().worldServers[0];
 			WorldInfo worldinfo = worldserver.getWorldInfo();
 
@@ -85,13 +85,15 @@ public class ItemAxeEnderium extends ItemAxeRF {
 
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int hitSide, float hitX, float hitY, float hitZ) {
-		if (!isEmpowered(stack)) {
-			world.spawnEntityInWorld(new EntityLightningBolt(world, x, y, z));
-		} else {
-			for (int i = 0; i <= 10; i++) {
+		if(!(getEnergyStored(stack) < energyPerUse)) {
+			if (!isEmpowered(stack)) {
 				world.spawnEntityInWorld(new EntityLightningBolt(world, x, y, z));
-				if (random.nextInt(50) == 0)
-					world.spawnEntityInWorld(new EntityLightningBolt(world, player.posX, player.posY, player.posZ));
+			} else if (isEmpowered(stack) && getEnergyStored(stack) >= energyPerUseCharged) {
+				for (int i = 0; i <= 10; i++) {
+					world.spawnEntityInWorld(new EntityLightningBolt(world, x, y, z));
+					if (random.nextInt(50) == 0)
+						world.spawnEntityInWorld(new EntityLightningBolt(world, player.posX, player.posY, player.posZ));
+				}
 			}
 		}
 
