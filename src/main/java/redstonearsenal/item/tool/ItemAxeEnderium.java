@@ -1,14 +1,22 @@
 package redstonearsenal.item.tool;
 
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
+import net.minecraft.world.storage.WorldInfo;
 
 public class ItemAxeEnderium extends ItemAxeRF {
+
+	Random random = new Random();
 
 	public ItemAxeEnderium(Item.ToolMaterial toolMaterial) {
 
@@ -49,6 +57,47 @@ public class ItemAxeEnderium extends ItemAxeRF {
 		if (!player.capabilities.isCreativeMode) {
 			useEnergy(stack, false);
 		}
+		return true;
+	}
+
+	@Override
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+
+		if (world.isRaining() || world.isThundering()) {
+			WorldServer worldserver = MinecraftServer.getServer().worldServers[0];
+			WorldInfo worldinfo = worldserver.getWorldInfo();
+
+			int i = (300 + (new Random()).nextInt(600)) * 20;
+
+			worldinfo.setRaining(false);
+			worldinfo.setThundering(false);
+			worldinfo.setRainTime(i);
+
+			if (random.nextInt(75) == 0)
+				world.spawnEntityInWorld(new EntityLightningBolt(world, player.posX, player.posY, player.posZ));
+
+			if (!player.capabilities.isCreativeMode)
+				useEnergy(stack, false);
+			player.swingItem();
+		}
+		return stack;
+	}
+
+	@Override
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int hitSide, float hitX, float hitY, float hitZ) {
+		if (!isEmpowered(stack)) {
+			world.spawnEntityInWorld(new EntityLightningBolt(world, x, y, z));
+		} else {
+			for (int i = 0; i <= 10; i++) {
+				world.spawnEntityInWorld(new EntityLightningBolt(world, x, y, z));
+				if (random.nextInt(50) == 0)
+					world.spawnEntityInWorld(new EntityLightningBolt(world, player.posX, player.posY, player.posZ));
+			}
+		}
+
+		if (!player.capabilities.isCreativeMode)
+			useEnergy(stack, false);
+
 		return true;
 	}
 }
