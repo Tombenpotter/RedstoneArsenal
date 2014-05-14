@@ -211,6 +211,27 @@ public class RAItems {
 		if (enable[6]) {
 			GameRegistry.addRecipe(new ShapedOreRecipe(fluxSickle, new Object[] { " I ", "  I", "RI ", 'I', "ingotElectrumFlux", 'R', rodObsidianFlux }));
 		}
+//		if (enable[7]) {
+//			GameRegistry.addRecipe(new ShapedOreRecipe(fluxBow, new Object[] { "   ", "   ", "    ", '', "", '', ""}));
+//		}
+		if (enable[8]) {
+			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumBattleWrench, new Object[] { "I I", "ITI", " R ", 'I', "ingotGelifiedEnderium", 'R', rodObsidianFlux, 'T', fluxBattleWrench }));
+		}
+		if (enable[9]) {
+			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumSword, new Object[] { " I ", " I ", " T ", 'I', "ingotGelifiedEnderium", 'T', fluxSword }));
+		}
+		if (enable[10]) {
+			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumShovel, new Object[] { " I ", " T ", " R ", 'I', "ingotGelifiedEnderium", 'R', rodObsidianFlux, 'T', fluxShovel }));
+		}
+		if (enable[11]) {
+			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumPickaxe, new Object[] { "III", " T ", " R ", 'I', "ingotGelifiedEnderium", 'R', rodObsidianFlux, 'T', fluxPickaxe }));
+		}
+		if (enable[12]) {
+			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumAxe, new Object[] { "II ", "IT ", " R ", 'I', "ingotGelifiedEnderium", 'R', rodObsidianFlux, 'T', fluxAxe }));
+		}
+		if (enable[13]) {
+			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumSickle, new Object[] { " I ", "  I", "RT ", 'I', "ingotGelifiedEnderium", 'R', rodObsidianFlux, 'T', fluxSickle }));
+		}
 		addReverseStorageRecipe(ingotGelifiedEnderium, "blockGelifiedEnderium");
 		addReverseStorageRecipe(ingotElectrumFlux, "blockElectrumFlux");
 		addReverseStorageRecipe(gemCrystalFlux, "blockCrystalFlux");
