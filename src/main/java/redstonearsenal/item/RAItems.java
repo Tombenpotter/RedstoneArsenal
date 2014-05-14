@@ -171,11 +171,20 @@ public class RAItems {
 				GameRegistry.addRecipe(new ShapelessOreRecipe(dustElectrumFlux, new Object[] { "dustElectrum", "dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone" }));
 			} else {
 				GameRegistry.addRecipe(new ShapelessOreRecipe(dustElectrumFlux, new Object[] { "ingotGold", "blockRedstone" }));
-				GameRegistry.addRecipe(new ShapedOreRecipe(ingotGelifiedEnderium, new Object[] { "PSP", "SIS", "PSP", 'I', "ingotIron", 'P', Items.ender_pearl, 'S', Blocks.packed_ice}));
 			}
 			GameRegistry.addRecipe(new ShapelessOreRecipe(gemCrystalFlux, new Object[] { Items.diamond, "dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone" }));
 			FurnaceRecipes.smelting().func_151394_a(dustElectrumFlux, ingotElectrumFlux, 0.0F);
 		}
+		
+		// Gelid Enderium Ingot recipes
+		if (ItemHelper.oreNameExists("ingotEnderium") && ItemHelper.oreNameExists("dustCryotheum")) {
+			GameRegistry.addRecipe(new ShapedOreRecipe(ingotGelifiedEnderium, new Object[] { "ECE", "CIC", "ECE", 'I', ingotElectrumFlux, 'E', "ingotEnderium", 'S', "dustCryotheum" }));
+		} else if(ItemHelper.oreNameExists("ingotEnderium") && !(ItemHelper.oreNameExists("dustCryotheum"))) {
+			GameRegistry.addRecipe(new ShapedOreRecipe(ingotGelifiedEnderium, new Object[] { "ESE", "SIS", "ESE", 'I', ingotElectrumFlux, 'E', "ingotEnderium", 'S', Blocks.packed_ice }));		
+		} else {
+			GameRegistry.addRecipe(new ShapedOreRecipe(ingotGelifiedEnderium, new Object[] { "PSP", "SIS", "PSP", 'I', ingotElectrumFlux, 'P', Items.ender_pearl, 'S', Blocks.packed_ice }));
+		}
+		
 		if (ItemHelper.oreNameExists("dustObsidian")) {
 			GameRegistry.addRecipe(new ShapedOreRecipe(rodObsidian, new Object[] { "  O", " B ", "O  ", 'B', Items.blaze_powder, 'O', "dustObsidian" }));
 		} else {
