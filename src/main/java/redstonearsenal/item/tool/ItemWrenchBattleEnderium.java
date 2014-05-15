@@ -16,8 +16,11 @@ public class ItemWrenchBattleEnderium extends ItemWrenchBattleRF {
 
 	public ItemWrenchBattleEnderium(ToolMaterial toolMaterial) {
 		super(toolMaterial);
+		maxEnergy = 320000;
 		damage = 8;
 		damageCharged = 5;
+		energyPerUse = 350;
+		energyPerUseCharged = 950;
 	}
 
 	@Override

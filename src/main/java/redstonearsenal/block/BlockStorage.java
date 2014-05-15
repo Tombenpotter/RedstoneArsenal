@@ -156,11 +156,11 @@ public class BlockStorage extends Block implements IInitializer {
 
 		blockElectrumFlux = new ItemStack(this, 1, 0);
 		blockCrystalFlux = new ItemStack(this, 1, 1);
-		blockGelifiedEnderium = new ItemStack(this, 1, 2);
+		blockGelidEnderium = new ItemStack(this, 1, 2);
 
 		ItemHelper.registerWithHandlers("blockElectrumFlux", blockElectrumFlux);
 		ItemHelper.registerWithHandlers("blockCrystalFlux", blockCrystalFlux);
-		ItemHelper.registerWithHandlers("blockGelifiedEnderium", blockGelifiedEnderium);
+		ItemHelper.registerWithHandlers("blockGelidEnderium", blockGelidEnderium);
 
 		return true;
 	}
@@ -176,12 +176,12 @@ public class BlockStorage extends Block implements IInitializer {
 
 		ItemHelper.addStorageRecipe(blockElectrumFlux, "ingotElectrumFlux");
 		ItemHelper.addStorageRecipe(blockCrystalFlux, "gemCrystalFlux");
-		ItemHelper.addStorageRecipe(blockGelifiedEnderium, "ingotGelifiedEnderium");
+		ItemHelper.addStorageRecipe(blockGelidEnderium, "ingotGelidEnderium");
 
 		return true;
 	}
 
-	public static final String[] NAMES = { "electrumFlux", "crystalFlux", "gelifiedEnderium" };
+	public static final String[] NAMES = { "electrumFlux", "crystalFlux", "gelidEnderium" };
 
 	public static boolean enableDamage[] = new boolean[3];
 	public static boolean enableDamageCharge[] = new boolean[3];
@@ -190,6 +190,6 @@ public class BlockStorage extends Block implements IInitializer {
 
 	public static ItemStack blockElectrumFlux;
 	public static ItemStack blockCrystalFlux;
-	public static ItemStack blockGelifiedEnderium;
+	public static ItemStack blockGelidEnderium;
 
 }

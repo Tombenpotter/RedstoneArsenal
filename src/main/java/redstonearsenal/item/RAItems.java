@@ -101,9 +101,9 @@ public class RAItems {
 
 		dustElectrumFlux = itemMaterial.addItem(0, "dustElectrumFlux", 1);
 		ingotElectrumFlux = itemMaterial.addItem(32, "ingotElectrumFlux", 1);
-		ingotGelifiedEnderium = itemMaterial.addItem(33, "ingotGelifiedEnderium", 1);
+		ingotGelidEnderium = itemMaterial.addItem(33, "ingotGelidEnderium", 1);
 		nuggetElectrumFlux = itemMaterial.addItem(64, "nuggetElectrumFlux", 1);
-		nuggetGelifiedEnderium = itemMaterial.addItem(65, "nuggetGelifiedEnderium", 1);
+		nuggetGelidEnderium = itemMaterial.addItem(65, "nuggetGelidEnderium", 1);
 		gemCrystalFlux = itemMaterial.addItem(96, "gemCrystalFlux", 1);
 
 		rodObsidian = itemMaterial.addItem(192, "rodObsidian");
@@ -112,9 +112,9 @@ public class RAItems {
 		OreDictionary.registerOre("dustElectrumFlux", dustElectrumFlux);
 		OreDictionary.registerOre("ingotElectrumFlux", ingotElectrumFlux);
 		OreDictionary.registerOre("nuggetElectrumFlux", nuggetElectrumFlux);
-		OreDictionary.registerOre("nuggetGelifiedEnderium", nuggetGelifiedEnderium);
+		OreDictionary.registerOre("nuggetGelidEnderium", nuggetGelidEnderium);
 		OreDictionary.registerOre("gemCrystalFlux", gemCrystalFlux);
-		OreDictionary.registerOre("ingotGelifiedEnderium", ingotGelifiedEnderium);
+		OreDictionary.registerOre("ingotGelidEnderium", ingotGelidEnderium);
 
 		/* Tools */
 		fluxWrench = EnergyHelper.setDefaultEnergyTag(new ItemStack(itemWrench), 0);
@@ -161,9 +161,9 @@ public class RAItems {
 	public static void postInit() {
 
 		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(nuggetElectrumFlux, 9), "ingotElectrumFlux"));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(nuggetGelifiedEnderium, 9), "ingotGelifiedEnderium"));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(nuggetGelidEnderium, 9), "ingotGelidEnderium"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(ingotElectrumFlux, new Object[] { "III", "III", "III", 'I', "nuggetElectrumFlux" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(ingotGelifiedEnderium, new Object[] { "III", "III", "III", 'I', "nuggetGelifiedEnderium" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(ingotGelidEnderium, new Object[] { "III", "III", "III", 'I', "nuggetGelidEnderium" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(rodObsidianFlux, new Object[] { "  O", " B ", "O  ", 'B', rodObsidian, 'O', "gemCrystalFlux" }));
 
 		if (!Loader.isModLoaded("ThermalExpansion")) {
@@ -178,11 +178,11 @@ public class RAItems {
 		
 		// Gelid Enderium Ingot recipes
 		if (ItemHelper.oreNameExists("ingotEnderium") && ItemHelper.oreNameExists("dustCryotheum")) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(ingotGelifiedEnderium, new Object[] { "ECE", "CIC", "ECE", 'I', ingotElectrumFlux, 'E', "ingotEnderium", 'S', "dustCryotheum" }));
+			GameRegistry.addRecipe(new ShapedOreRecipe(ingotGelidEnderium, new Object[] { "ECE", "CIC", "ECE", 'I', ingotElectrumFlux, 'E', "ingotEnderium", 'S', "dustCryotheum" }));
 		} else if(ItemHelper.oreNameExists("ingotEnderium") && !(ItemHelper.oreNameExists("dustCryotheum"))) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(ingotGelifiedEnderium, new Object[] { "ESE", "SIS", "ESE", 'I', ingotElectrumFlux, 'E', "ingotEnderium", 'S', Blocks.packed_ice }));		
+			GameRegistry.addRecipe(new ShapedOreRecipe(ingotGelidEnderium, new Object[] { "ESE", "SIS", "ESE", 'I', ingotElectrumFlux, 'E', "ingotEnderium", 'S', Blocks.packed_ice }));		
 		} else {
-			GameRegistry.addRecipe(new ShapedOreRecipe(ingotGelifiedEnderium, new Object[] { "PSP", "SIS", "PSP", 'I', ingotElectrumFlux, 'P', Items.ender_pearl, 'S', Blocks.packed_ice }));
+			GameRegistry.addRecipe(new ShapedOreRecipe(ingotGelidEnderium, new Object[] { "PSP", "SIS", "PSP", 'I', ingotElectrumFlux, 'P', Items.ender_pearl, 'S', Blocks.packed_ice }));
 		}
 		
 		if (ItemHelper.oreNameExists("dustObsidian")) {
@@ -215,24 +215,24 @@ public class RAItems {
 //			GameRegistry.addRecipe(new ShapedOreRecipe(fluxBow, new Object[] { "   ", "   ", "    ", '', "", '', ""}));
 //		}
 		if (enable[8]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumBattleWrench, new Object[] { "I I", "ITI", " R ", 'I', "ingotGelifiedEnderium", 'R', rodObsidianFlux, 'T', fluxBattleWrench }));
+			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumBattleWrench, new Object[] { "I I", "ITI", " R ", 'I', "ingotGelidEnderium", 'R', rodObsidianFlux, 'T', fluxBattleWrench }));
 		}
 		if (enable[9]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumSword, new Object[] { " I ", " I ", " T ", 'I', "ingotGelifiedEnderium", 'T', fluxSword }));
+			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumSword, new Object[] { " I ", " I ", " T ", 'I', "ingotGelidEnderium", 'T', fluxSword }));
 		}
 		if (enable[10]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumShovel, new Object[] { " I ", " T ", " R ", 'I', "ingotGelifiedEnderium", 'R', rodObsidianFlux, 'T', fluxShovel }));
+			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumShovel, new Object[] { " I ", " T ", " R ", 'I', "ingotGelidEnderium", 'R', rodObsidianFlux, 'T', fluxShovel }));
 		}
 		if (enable[11]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumPickaxe, new Object[] { "III", " T ", " R ", 'I', "ingotGelifiedEnderium", 'R', rodObsidianFlux, 'T', fluxPickaxe }));
+			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumPickaxe, new Object[] { "III", " T ", " R ", 'I', "ingotGelidEnderium", 'R', rodObsidianFlux, 'T', fluxPickaxe }));
 		}
 		if (enable[12]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumAxe, new Object[] { "II ", "IT ", " R ", 'I', "ingotGelifiedEnderium", 'R', rodObsidianFlux, 'T', fluxAxe }));
+			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumAxe, new Object[] { "II ", "IT ", " R ", 'I', "ingotGelidEnderium", 'R', rodObsidianFlux, 'T', fluxAxe }));
 		}
 		if (enable[13]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumSickle, new Object[] { " I ", "  I", "RT ", 'I', "ingotGelifiedEnderium", 'R', rodObsidianFlux, 'T', fluxSickle }));
+			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumSickle, new Object[] { " I ", "  I", "RT ", 'I', "ingotGelidEnderium", 'R', rodObsidianFlux, 'T', fluxSickle }));
 		}
-		addReverseStorageRecipe(ingotGelifiedEnderium, "blockGelifiedEnderium");
+		addReverseStorageRecipe(ingotGelidEnderium, "blockGelidEnderium");
 		addReverseStorageRecipe(ingotElectrumFlux, "blockElectrumFlux");
 		addReverseStorageRecipe(gemCrystalFlux, "blockCrystalFlux");
 
@@ -287,9 +287,9 @@ public class RAItems {
 
 	public static ItemStack dustElectrumFlux;
 	public static ItemStack ingotElectrumFlux;
-	public static ItemStack ingotGelifiedEnderium;
+	public static ItemStack ingotGelidEnderium;
 	public static ItemStack nuggetElectrumFlux;
-	public static ItemStack nuggetGelifiedEnderium;
+	public static ItemStack nuggetGelidEnderium;
 	public static ItemStack gemCrystalFlux;
 
 	public static ItemStack rodObsidian;
