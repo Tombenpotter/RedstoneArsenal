@@ -24,6 +24,7 @@ public class ItemSwordEnderium extends ItemSwordRF {
 		energyPerUseCharged = 950;
 	}
 
+	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int par4, boolean par5) {
 
 		if (isEmpowered(stack))
