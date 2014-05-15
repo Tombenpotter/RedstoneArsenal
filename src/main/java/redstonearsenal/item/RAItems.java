@@ -211,9 +211,6 @@ public class RAItems {
 		if (enable[6]) {
 			GameRegistry.addRecipe(new ShapedOreRecipe(fluxSickle, new Object[] { " I ", "  I", "RI ", 'I', "ingotElectrumFlux", 'R', rodObsidianFlux }));
 		}
-//		if (enable[7]) {
-//			GameRegistry.addRecipe(new ShapedOreRecipe(fluxBow, new Object[] { "   ", "   ", "    ", '', "", '', ""}));
-//		}
 		if (enable[8]) {
 			GameRegistry.addRecipe(new ShapedOreRecipe(enderiumBattleWrench, new Object[] { "I I", "ITI", " R ", 'I', "ingotGelidEnderium", 'R', rodObsidianFlux, 'T', fluxBattleWrench }));
 		}
