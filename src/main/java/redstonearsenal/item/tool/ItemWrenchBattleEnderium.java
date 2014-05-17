@@ -1,6 +1,7 @@
 package redstonearsenal.item.tool;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -16,7 +17,7 @@ public class ItemWrenchBattleEnderium extends ItemWrenchBattleRF {
 	int radius = 2;
 	Random random = new Random();
 	int spinDamage = 2;
-	int resistanceEffect = 2;
+	int resistanceEffect = 1;
 
 	public ItemWrenchBattleEnderium(ToolMaterial toolMaterial) {
 		super(toolMaterial);
@@ -35,19 +36,25 @@ public class ItemWrenchBattleEnderium extends ItemWrenchBattleRF {
 			resistanceEffect = 4;
 		}
 
+		AxisAlignedBB box = AxisAlignedBB.getAABBPool().getAABB(player.posX, player.posY, player.posZ, player.posX + 3.0D, player.posY + 3.0D, player.posZ + 3.0D).expand(3.0D, 3.0D, 3.0D);
 		AxisAlignedBB bb = AxisAlignedBB.getBoundingBox(player.posX - radius, player.posY - radius, player.posZ - radius, player.posX + radius, player.posY + radius, player.posZ + radius);
 		Iterator iter = world.getEntitiesWithinAABB(EntityLivingBase.class, bb).iterator();
-		if (iter != null) {
-			while (iter.hasNext()) {
-				EntityLivingBase entity = (EntityLivingBase) iter.next();
-				entity.attackEntityFrom(Utils.causePlayerFluxDamage(player), spinDamage);
-				player.setAngles(-90, 90);
-				world.spawnParticle("largeexplode", player.posX, player.posY, player.posZ, 1, 1, 1);
-				if (!player.capabilities.isCreativeMode && random.nextInt(10) == 0)
-					useEnergy(stack, false);
+        List list = player.worldObj.getEntitiesWithinAABBExcludingEntity(player, box);
+        
+        for (Object o : list) {
+    		player.addPotionEffect(new PotionEffect(Potion.resistance.id, 20, resistanceEffect, false));
+    		player.swingItem();
+			if (iter != null) {
+				while (iter.hasNext()) {
+					EntityLivingBase entity = (EntityLivingBase) iter.next();
+					entity.attackEntityFrom(Utils.causePlayerFluxDamage(player), spinDamage);
+					player.setAngles(-90, 20);
+					world.spawnParticle("largeexplode", player.posX, player.posY, player.posZ, 1, 1, 1);
+					if (!player.capabilities.isCreativeMode && random.nextInt(5) == 0)
+						useEnergy(stack, false);
+				}
 			}
-		}
-		player.addPotionEffect(new PotionEffect(Potion.resistance.id, 20, resistanceEffect, false));
+        }
 		return stack;
 	}
 }
