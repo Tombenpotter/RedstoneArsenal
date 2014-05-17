@@ -7,11 +7,14 @@ info.redstonearsenal.tool.chargeOn=pour rendre plus puissant
 info.redstonearsenal.tool.chargeOff=pour rendre moins puissant
 info.redstonearsenal.tool.energyPerUse=RF par utilisation
 info.redstonearsenal.tool.shovel=Peut aussi être utilisé comme une houe.
-info.redstonearsenal.tool.wrench=Peut aussi être utilisé comme des cisailles
+info.redstonearsenal.tool.wrench=Peut aussi être utilisé comme des cisailles.
+info.redstonearsenal.tool.enderiumshovel=Peut aussi être utilisé comme de l'engrais.
 
 item.redstonearsenal.material.dustElectrumFlux.name=Mélange d'Électrum Fluxé
 item.redstonearsenal.material.ingotElectrumFlux.name=Lingot d'Électrum Fluxé
+item.redstonearsenal.material.ingotGelidEnderium.name=Lingot d'Enderium Gélifié
 item.redstonearsenal.material.nuggetElectrumFlux.name=Pépite d'Électrum Fluxé
+item.redstonearsenal.material.nuggetGelidEnderium.name=Pépite d'Enderium Gélifié
 item.redstonearsenal.material.gemCrystalFlux.name=Crystal de Flux
 item.redstonearsenal.material.rodObsidian.name=Bâton d'Obsidienne 
 item.redstonearsenal.material.rodObsidianFlux.name=Bâton d'obisidienne Infusé
@@ -25,17 +28,17 @@ item.redstonearsenal.tool.axe.name=Hache Infusée par du Flux
 item.redstonearsenal.tool.sickle.name=Faucille Infusée par du Flux
 item.redstonearsenal.tool.bow.name=Arc Infusé par du Flux
 
-item.redstonearsenal.tool.enderium.pickaxe.name=Pioche Infusée par de l'Enderium
-item.redstonearsenal.tool.enderium.sword.name=Épée Infusée par de l'Enderium
-item.redstonearsenal.tool.enderium.shovel.name=Pelle Infusée par de l'Enderium
-item.redstonearsenal.tool.enderium.shovel.name=Pelle Infusée par de l'Enderium
-item.redstonearsenal.tool.enderium.axe.name=Hache Infusée par de l'Enderium
-item.redstonearsenal.tool.enderium.sickle.name=Faucille Infusée par de l'Enerium
-item.redstonearsenal.tool.enderium.battleWrench.name=Clé de Bataille Infusée par de l'Enderium
+item.redstonearsenal.tool.enderium.pickaxe.name=Pioche d'Enderium Gélifié
+item.redstonearsenal.tool.enderium.sword.name=Épée d'Enderium Gélifié
+item.redstonearsenal.tool.enderium.shovel.name=Pelle d'Enderium Gélifié
+item.redstonearsenal.tool.enderium.axe.name=Hache d'Enderium Gélifié
+item.redstonearsenal.tool.enderium.sickle.name=Faucille d'Enderium Gélifié
+item.redstonearsenal.tool.enderium.battleWrench.name=Clé de Bataille d'Enderium Gélifié
 
 itemGroup.redstonearsenal.creativeTab=Redstone Arsenal
 
 keybind.redstonearsenal.empower=Rendre plus/moins puissant l'outil/arme de Flux
 
-tile.redstonearsenal.storage.electrumFlux.name=Block d'Électrum Fluxé
-tile.redstonearsenal.storage.crystalFlux.name=Block de Crystal de Flux
+tile.redstonearsenal.storage.electrumFlux.name=Bloc d'Électrum Fluxé
+tile.redstonearsenal.storage.crystalFlux.name=Bloc de Crystal Fluxé
+tile.redstonearsenal.storage.gelidEnderium.name=Bloc d'Enderium Gélifié

@@ -12,7 +12,7 @@ info.redstonearsenal.tool.enderiumshovel=Also serves as Bonemeal.
 
 item.redstonearsenal.material.dustElectrumFlux.name=Fluxed Electrum Blend
 item.redstonearsenal.material.ingotElectrumFlux.name=Fluxed Electrum Ingot
-item.redstonearsenal.material.ingotGelidEnderium.name= Gelid Enderium Ingot
+item.redstonearsenal.material.ingotGelidEnderium.name=Gelid Enderium Ingot
 item.redstonearsenal.material.nuggetElectrumFlux.name=Fluxed Electrum Nugget
 item.redstonearsenal.material.nuggetGelidEnderium.name=Gelid Enderium Nugget
 item.redstonearsenal.material.gemCrystalFlux.name=Flux Crystal
@@ -28,12 +28,12 @@ item.redstonearsenal.tool.axe.name=Flux-Infused Axe
 item.redstonearsenal.tool.sickle.name=Flux-Infused Sickle
 item.redstonearsenal.tool.bow.name=Flux-Infused Bow
 
-item.redstonearsenal.tool.enderium.pickaxe.name=Enderium-Infused Pickaxe
-item.redstonearsenal.tool.enderium.sword.name=Enderium-Infused Sword
-item.redstonearsenal.tool.enderium.shovel.name=Enderium-Infused Shovel
-item.redstonearsenal.tool.enderium.axe.name=Enderium-Infused Axe
-item.redstonearsenal.tool.enderium.sickle.name=Enderium-Infused Sickle
-item.redstonearsenal.tool.enderium.battleWrench.name=Enderium-Infused BattleWrench
+item.redstonearsenal.tool.enderium.pickaxe.name=Gelid Enderium Pickaxe
+item.redstonearsenal.tool.enderium.sword.name=Gelid Enderium Sword
+item.redstonearsenal.tool.enderium.shovel.name=Gelid Enderium Shovel
+item.redstonearsenal.tool.enderium.axe.name=Gelid Enderium Axe
+item.redstonearsenal.tool.enderium.sickle.name=Gelid Enderium Sickle
+item.redstonearsenal.tool.enderium.battleWrench.name=Gelid Enderium BattleWrench
 
 itemGroup.redstonearsenal.creativeTab=Redstone Arsenal
 
