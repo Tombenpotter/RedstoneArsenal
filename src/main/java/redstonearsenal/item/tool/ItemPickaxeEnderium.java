@@ -11,6 +11,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import cofh.util.MathHelper;
 
+/*
+Since it's an ENDERium pickaxe, why not add some ENDER abilities? Instead of breaking stone, it will teleport a 3x3 area of it behind you. However if you mine ores, it will only do the
+single block.
+*/
+
 public class ItemPickaxeEnderium extends ItemPickaxeRF {
     int range = 4;
     Random random = new Random();

@@ -11,6 +11,10 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import codechicken.lib.vec.Vector3;
 
+/*
+Ever wanted the ability to suck in nearby items while blocking? No? Well now you can! Empower for more suckage.
+*/
+
 public class ItemSwordEnderium extends ItemSwordRF {
 	int radius = 5;
 	Random random = new Random();

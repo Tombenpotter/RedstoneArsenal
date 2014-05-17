@@ -14,6 +14,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.storage.WorldInfo;
 
+/*
+In accordance with this (http://en.wikipedia.org/wiki/Axe#Symbolism.2C_ritual.2C_and_folklore) Wikipedia page, axes go with weather. Yeah, I didn't believe it, either. Anyways, when empowered, the
+axe will allow the player to use a large amount of energy to rid the world of rain as well as spawning lightning bolts on the block they right click. Careful, though. It's not completely stable. ;)
+*/
+
 public class ItemAxeEnderium extends ItemAxeRF {
 
 	Random random = new Random();
@@ -73,7 +78,7 @@ public class ItemAxeEnderium extends ItemAxeRF {
 			worldinfo.setThundering(false);
 			worldinfo.setRainTime(i);
 
-			if (random.nextInt(75) == 0)
+			if (random.nextInt(50) == 0)
 				world.spawnEntityInWorld(new EntityLightningBolt(world, player.posX, player.posY, player.posZ));
 
 			if (!player.capabilities.isCreativeMode)

@@ -14,8 +14,11 @@ import net.minecraftforge.event.entity.player.BonemealEvent;
 import cofh.util.StringHelper;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 
+/*
+Since the standard Fluxed Axe is a hoe, doesn't it make sense that this is bonemeal? No? TOO BAD. IT'S BONEMEAL. EMPOWER TO PLACE MOAR BONEMEAL.
+*/
+
 public class ItemShovelEnderium extends ItemShovelRF {
-	int bonemealNumber = 5;
 
 	public ItemShovelEnderium(ToolMaterial toolMaterial) {
 		super(toolMaterial);

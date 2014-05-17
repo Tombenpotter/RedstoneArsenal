@@ -13,7 +13,12 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import redstonearsenal.util.Utils;
 
-public class ItemWrenchBattleEnderium extends ItemWrenchBattleRF {
+
+/*
+The idea behind the BattleWrench ability is swinging the wrench in a wide arc damaging mobs/players/etc in a 2 (4 if empowered) block radius. In order to "simulate" the
+swing, the player will be turned slightly as if the momentum moved them. This is not how we intended (wanted the player to spin in a full circle) but this works, too.
+*/
+ public class ItemWrenchBattleEnderium extends ItemWrenchBattleRF {
 	int radius = 2;
 	Random random = new Random();
 	int spinDamage = 2;
@@ -36,25 +41,20 @@ public class ItemWrenchBattleEnderium extends ItemWrenchBattleRF {
 			resistanceEffect = 4;
 		}
 
-		AxisAlignedBB box = AxisAlignedBB.getAABBPool().getAABB(player.posX, player.posY, player.posZ, player.posX + 3.0D, player.posY + 3.0D, player.posZ + 3.0D).expand(3.0D, 3.0D, 3.0D);
 		AxisAlignedBB bb = AxisAlignedBB.getBoundingBox(player.posX - radius, player.posY - radius, player.posZ - radius, player.posX + radius, player.posY + radius, player.posZ + radius);
 		Iterator iter = world.getEntitiesWithinAABB(EntityLivingBase.class, bb).iterator();
-        List list = player.worldObj.getEntitiesWithinAABBExcludingEntity(player, box);
-        
-        for (Object o : list) {
     		player.addPotionEffect(new PotionEffect(Potion.resistance.id, 20, resistanceEffect, false));
     		player.swingItem();
 			if (iter != null) {
 				while (iter.hasNext()) {
 					EntityLivingBase entity = (EntityLivingBase) iter.next();
 					entity.attackEntityFrom(Utils.causePlayerFluxDamage(player), spinDamage);
-					player.setAngles(-90, 20);
+					player.setAngles(-180, 10);
 					world.spawnParticle("largeexplode", player.posX, player.posY, player.posZ, 1, 1, 1);
 					if (!player.capabilities.isCreativeMode && random.nextInt(5) == 0)
 						useEnergy(stack, false);
 				}
 			}
-        }
 		return stack;
 	}
 }
